@@ -1,0 +1,14 @@
+{
+    "name": "ttree/uaparser",
+    "type": "typo3-flow-package",
+    "description": "UA Parser wrapper package for your Flow Framework and Neos CMS project",
+    "require": {
+        "typo3/flow": "*",
+        "ua-parser/uap-php": "~3.4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Ttree\\UaParser": "Classes"
+        }
+    }
+}
