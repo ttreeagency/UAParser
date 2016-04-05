@@ -11,7 +11,6 @@ namespace Ttree\UAParser;
  * source code.
  */
 
-use Ttree\UAParser\Service\RegularExpressionService;
 use TYPO3\Flow\Annotations as Flow;
 use UAParser\Result\Client;
 
@@ -21,15 +20,9 @@ use UAParser\Result\Client;
 class Parser {
 
 	/**
-	 * @Flow\Inject
-	 * @var RegularExpressionService
-	 */
-	protected $regularExpressionService;
-
-	/**
 	 * @var boolean
 	 */
-	protected $initialized = FALSE;
+	protected $initialized = false;
 
 	/**
 	 * @var \UAParser\Parser
@@ -40,26 +33,24 @@ class Parser {
 	 * Initialize the object
 	 */
 	public function initialize() {
-		if ($this->initialized === TRUE) {
+		if ($this->initialized === true) {
 			return;
 		}
-		$this->userAgentParser = new \UAParser\Parser($this->regularExpressionService->load());
-		$this->initialized = TRUE;
+		$this->userAgentParser = \UAParser\Parser::create();
+		$this->initialized = true;
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * Sets up some standard variables as well as starts the user agent parsing process
 	 *
 	 * @param string $userAgent
 	 * @param array $jsParseBits
 	 * @return Client
 	 */
 	public function parse($userAgent, array $jsParseBits = array()) {
-		if ($this->initialized === FALSE) {
+		if ($this->initialized === false) {
 			$this->initialize();
 		}
 		return $this->userAgentParser->parse($userAgent, $jsParseBits);
 	}
 }
-
-?>
