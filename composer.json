@@ -1,6 +1,12 @@
 {
     "name": "ttree/uaparser",
     "type": "typo3-flow-package",
+    "license": "MIT",
+    "keywords": [
+        "neos",
+        "ua",
+        "user-agent"
+    ],
     "description": "UA Parser wrapper package for your Flow Framework and Neos CMS project",
     "require": {
         "typo3/flow": "*",
